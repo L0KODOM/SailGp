@@ -1,0 +1,16 @@
+.ranking ol{
+  display: flex;
+  flex-direction: row;
+}
+
+.ranking li{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ranking li *{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

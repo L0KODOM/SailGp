@@ -25,6 +25,8 @@ class Team(BaseModel):
   last_results: List[RaceResult]
   crew: List[Sailor]
   probabilities: float
+  picture: str
+  flag: str
   
 
 

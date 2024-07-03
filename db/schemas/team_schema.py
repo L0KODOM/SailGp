@@ -23,7 +23,9 @@ def team_schema(team) -> dict:
                 "age": sailor["age"]
             } for sailor in team["crew"]
         ],
-        "probabilities": team["probabilities"]
+        "probabilities": team["probabilities"],
+        "picture": team["picture"],
+        "flag": team["flag"]
     }
     
     

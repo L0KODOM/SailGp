@@ -33,6 +33,11 @@
   }
 }
 
+@font-face {
+  font-family: edosz;
+  src: url("../fonts/edosz.ttf");
+}
+
 .card {
   padding: 2em;
 }

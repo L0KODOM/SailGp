@@ -1,11 +1,12 @@
 import numpy as np
 import random
 import threading
-from db_control.validations import get_valid_input, get_valid_name
-from db_control.main_requests import get_data
+import json
+from validations import get_valid_input, get_valid_name
+from main_requests import get_data
 
 
-RACES = ["Canada", "Spain", "Italy", "EEUU"]
+RACES = ["CHICAGO", "LOS ANGELES", "SAINT-TROPEZ", "CADIZ", "DUBAI", "ABU DHABI", "SIDNEY", "CHRISTCHURCH", "BERMUDA", "HALIFAX", "NEW YORK"]
 
 team_last_positions = []
 
@@ -63,11 +64,11 @@ def get_seasons_data(season):
   
 def get_last_results_data(race):
   position_race = get_valid_input(
-    f"Posicion Season {race}: ",
+    f"Posicion {race}: ",
     'position'
   )
   points_race = get_valid_input(
-    f"Puntos Season {race}: ",
+    f"Puntos {race}: ",
     'points'
   )
     
@@ -82,10 +83,10 @@ def get_last_results_data(race):
 def get_crew_data():
   name = get_valid_name("Nombre: ")
   age = get_valid_input(
-    f"Edad de {name}",
+    f"Edad de {name}: ",
     'age'
   )
-  position = input("Posición del tripulante")
+  position = input("Posición del tripulante: ")
       
   return {
     "name" : name,
@@ -99,10 +100,12 @@ def define_team(type):
   
   if type != 'post':
     data = get_data(country)
-    data_id = data["id"]
+    data_json = json.loads(data)
+    data_id = data_json["id"]
     
   nickname = get_valid_name("Apodo: ")  
   picture = input("Url de la imagen: ")
+  flag = input("Url de la bandera:")
   
   seasons_data = [get_seasons_data(season) for season in range(1,4)]
   
@@ -117,7 +120,8 @@ def define_team(type):
     "last_results": last_results_data,
     "crew": crew_data,
     "probabilities": race_simulator(),
-    "picture": picture
+    "picture": picture,
+    "flag": flag
   }
   
   if type != 'post':

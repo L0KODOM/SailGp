@@ -1,16 +1,90 @@
+.ranking{
+  display: flex;
+  flex-wrap: wrap;
+  padding-right: 40px;
+  background-color: rgb(3, 31, 21);
+  border-radius: 1%;
+  box-shadow: 3px 5px 5px aquamarine;
+}
+
+.ranking-section h1{
+  color: rgb(214, 214, 214);
+  text-shadow: 2px 2px 1px rgb(10, 136, 52);
+  font-family: edosz;
+}
+
+.ranking img{
+  width: 50px;
+  height: auto;
+}
+
 .ranking ol{
   display: flex;
   flex-direction: row;
+  background-color: rgb(3, 31, 21);
 }
 
-.ranking li{
+.ranking ol li{
+  list-style-type: none;
+  margin-left: 10px;
+  background-color: rgb(7, 80, 55);
+  border-radius: 1%;
+}
+
+.inside{
+  position: relative;
+  right: 25px;
+}
+
+.columnas{
   display: flex;
   flex-direction: column;
   align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
-.ranking li *{
+.regatas{
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  overflow-x: scroll;
+}
+
+.regatas::-webkit-scrollbar {
+  height: 12px; 
+}
+
+.regatas::-webkit-scrollbar-track {
+  background: rgb(4, 49, 34); 
+}
+
+.regatas::-webkit-scrollbar-thumb {
+  background: aquamarine; 
+  border-radius: 6px; 
+}
+
+.regatas::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.value {
+  align-content: center;
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+}
+
+#regatas{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-left: -30px;
+  position: relative;
+  bottom: 2px;
+  background-color: rgb(18, 104, 74);
+}
+
+#regatas li{
+  position: relative;
+  right: 20px;
 }

@@ -5,7 +5,12 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background: 
+    linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
+    url("https://images.ctfassets.net/2lppn7hwgzta/FCIfWeIjHDIJ7SL6veFP5/a3997b4b4c802cbc54fb422c216c0824/DJI_0024.JPG");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,7 +20,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: aquamarine;
   text-decoration: inherit;
 }
 a:hover {

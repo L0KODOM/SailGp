@@ -9,9 +9,11 @@ export const useLists = (sortedTeams, teams) => {
       const finalPoints = ['Puntos'];
       const newRaces = new Set();
       const newRacesResults = {};
+      const regattas = []
       const newExpectedPos = ['Posición Esperada'];
       const newProbs = ['Probabilidad de Victoria'];
-      const newRankedTeams = ['Equipos'] 
+      const newRankedTeams = ['Equipos'] ;
+      const flags = ['https://images.ctfassets.net/2lppn7hwgzta/58zlbktS7RiHV9j36zMXw3/2dd1cb7f97607f28abfcc9941abeb26a/SailGP_Logo_White__1_PADDING.png']
       const newColumns = []
       let totalProb = 0;
 
@@ -27,6 +29,7 @@ export const useLists = (sortedTeams, teams) => {
         newRankedTeams.push(team.country);
         newExpectedPos.push(team.stats_pos);
         newProbs.push(team.probabilities);
+        flags.push(team.flag)
         totalProb += team.probabilities;
       });
 
@@ -39,14 +42,16 @@ export const useLists = (sortedTeams, teams) => {
       });
       const entries = Object.entries(newRacesResults);
       
+      newColumns.push(flags)
       newColumns.push(newRankedTeams);
       newColumns.push(finalPoints);
+      
       if (entries.length > 0){
-        newColumns.push(entries[0][1]);
-        newColumns.push(entries[1][1]);
-        newColumns.push(entries[2][1]);
-        newColumns.push(entries[3][1]);
+        entries.forEach((entry)=>{
+          regattas.push(entry[1])
+        })
       }
+      newColumns.push(regattas);
       newColumns.push(newExpectedPos);
       newColumns.push(newPercent);
       setColumns(newColumns)

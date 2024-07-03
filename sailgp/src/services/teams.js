@@ -12,7 +12,8 @@ export const searchTeams = async () => {
       country: team.country,
       nickname: team.nickname,
       lastResults: team.last_results,
-      probabilities: team.probabilities
+      probabilities: team.probabilities,
+      flag: team.flag
     }))
 
     return teams

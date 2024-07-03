@@ -9,11 +9,11 @@ def get_valid_name(input_text):
 def get_valid_input(input_text, type):
   
   validations = {
-    'position': {
+    'points': {
         'error_text': "El número de puntos no puede ser negativo",
         'validation': lambda x: x >= 0
     },
-    'points': {
+    'position': {
         'error_text': "La posición debe ser entre 1 y 10",
         'validation': lambda x: 1 <= x <= 10
     },

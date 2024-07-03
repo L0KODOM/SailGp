@@ -1,6 +1,7 @@
-from db_control.validations import get_valid_input
-from db_control.main_requests import send_team, send_update, send_delete, get_data
-from db_control.data_schemas import define_team
+from validations import get_valid_input
+from main_requests import send_team, send_update, send_delete, get_data
+from data_schemas import define_team
+import json
 
 
 def post_team():
@@ -40,7 +41,8 @@ def delete_team():
   country = input("Que equipo quieres eliminar?: ")
   
   data = get_data(country)
-  data_id = data["id"]
+  data_json = json.loads(data)
+  data_id = data_json["id"]
   
   send_delete(data_id)
 

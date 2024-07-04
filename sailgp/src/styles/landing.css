@@ -1,0 +1,11 @@
+.landing {
+  background-color: aqua;
+  width: 100vw;
+  height: 39vw;
+  background: 
+    linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
+    url("https://www.livingpuramadera.com/wp-content/uploads/2021/10/sailgp2.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+}

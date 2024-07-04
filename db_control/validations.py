@@ -19,7 +19,7 @@ def get_valid_input(input_text, type):
     },
     'menu': {
         'error_text': "Elige una opción válida",
-        'validation': lambda x: 1 <= x <= 4
+        'validation': lambda x: 1 <= x <= 5
     },
     'season': {
         'error_text': "Elige una temporada válida",

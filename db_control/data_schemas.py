@@ -10,6 +10,39 @@ RACES = ["CHICAGO", "LOS ANGELES", "SAINT-TROPEZ", "CADIZ", "DUBAI", "ABU DHABI"
 
 team_last_positions = []
 
+
+
+def prob_positions(results) -> dict:
+  
+  num_simulations = 10000
+  
+  teams_probs = {}
+  
+  for team, team_results in results.items():
+    results_np = np.array(team_results)
+    mean = np.mean(results_np)
+    desviation = np.std(results_np)
+    if team not in teams_probs:
+      teams_probs[team] = {}
+
+    for num in range(1,11):
+      if num not in teams_probs[team]:
+        teams_probs[team][num] = 0
+    
+    for _ in range(num_simulations):
+      simulation = random.gauss(mean, desviation)
+      rounded = round(simulation)
+      
+      for number in range(1,11):
+        if rounded == number:
+          teams_probs[team][number] += 1
+          
+  for team, results in teams_probs.items():
+    for number in range(1,11):
+      results[number] = results[number] / num_simulations
+          
+  return teams_probs
+
 def race_simulator(simulations= 40000, num_threads = 4):
   
   numpy_array = np.array(team_last_positions)

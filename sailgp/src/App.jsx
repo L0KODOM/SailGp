@@ -8,7 +8,7 @@ import { Ranking } from './components/Ranking'
 function App() {
 
   return (
-    <main>
+    <main className='main'>
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/team/:country' element={<Team/>}/>

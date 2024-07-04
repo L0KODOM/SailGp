@@ -1,6 +1,6 @@
 from validations import get_valid_input
-from main_requests import send_team, send_update, send_delete, get_data
-from data_schemas import define_team
+from main_requests import send_team, send_update, send_delete, get_data, get_positions
+from data_schemas import define_team, prob_positions
 import json
 
 
@@ -46,12 +46,21 @@ def delete_team():
   
   send_delete(data_id)
 
+def get_pos():
+  
+  races_results = get_positions()
+  
+  teams_probs = prob_positions(races_results)
+  
+  print(teams_probs)
+
 def handle_action(option):  
   actions = {
         1: post_team,
         2: patch_team,
         3: put_team,
-        4: delete_team
+        4: delete_team,
+        5: get_pos
     }
   action = actions.get(option, lambda: print("Opción inválida"))
   action()
@@ -60,7 +69,7 @@ def display_menu():
   
   input("Bienvenido al la base de datos de Sailgp, press enter para entrar.\n\n")
   
-  print("\t1. Añadir un equipo\n\t2. Modificar un equipo\n\t3. Remplazar un equipo\n\t4. Borrar un equipo.\n\n")
+  print("\t1. Añadir un equipo\n\t2. Modificar un equipo\n\t3. Remplazar un equipo\n\t4. Borrar un equipo.\n\t5. Tomar posiciones.\n\n")
   
   option = get_valid_input(
     "Elige la opción: ",

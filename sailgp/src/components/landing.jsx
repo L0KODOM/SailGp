@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { TeamsContext } from "../context/TeamsContext";
+import '../styles/landing.css'
 
 
 

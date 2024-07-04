@@ -37,6 +37,32 @@ def get_data(country, parameter= '', number= '', option= '', value= '', type= ''
   except:
     print("ha sucecido un error en get")
     
+   
+def get_positions() -> dict:
+  
+  token = "5ecdf18e-c543-4fa3-aff7-dbade6f04407" 
+  races_results = {}
+  
+  try:
+    url = (f"{URL}api_key={token}")
+    response = requests.get(url)
+    text_response = response.text.replace("'", '"')
+    response_data = json.loads(text_response)
+    
+    for result in response_data:
+      country = result['country']
+      if country not in races_results:
+        races_results[country] = []
+      for race in result["last_results"]:
+        races_results[country].append(race["position"])
+    
+    return races_results
+    
+    
+  except:
+    print("ha sucecido un error en get")
+    
+    
 def send_update(country, parameter, number, option, value):
   
   response_data_corrected = get_data(country, parameter, number, option, value, 'patch')

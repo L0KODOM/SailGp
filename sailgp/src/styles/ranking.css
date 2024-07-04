@@ -1,15 +1,20 @@
+.ranking-section{
+  position: relative;
+  top: -50px;
+}
+
 .ranking{
   display: flex;
   flex-wrap: wrap;
   padding-right: 40px;
   background-color: rgb(3, 31, 21);
   border-radius: 1%;
-  box-shadow: 3px 5px 5px aquamarine;
+  box-shadow: 3px 5px 5px #80ffd4;
+  max-width: 1070px;
 }
 
 .ranking-section h1{
   color: rgb(214, 214, 214);
-  text-shadow: 2px 2px 1px rgb(10, 136, 52);
   font-family: edosz;
 }
 
@@ -51,22 +56,7 @@
   overflow-x: scroll;
 }
 
-.regatas::-webkit-scrollbar {
-  height: 12px; 
-}
 
-.regatas::-webkit-scrollbar-track {
-  background: rgb(4, 49, 34); 
-}
-
-.regatas::-webkit-scrollbar-thumb {
-  background: aquamarine; 
-  border-radius: 6px; 
-}
-
-.regatas::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
 
 .value {
   align-content: center;

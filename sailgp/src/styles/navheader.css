@@ -1,26 +1,24 @@
 .navheader{
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   flex-grow: 1;
   align-items: center;
   justify-content: space-between;
   padding-right: 50px;
   padding-left: 50px;
+  height: 80px;
+  border-bottom: 4px solid aquamarine;
 }
 
 .navheader img{
   width: 350px;
   height: auto;
-  position: relative;
-  right: 400px
 }
 
 .navheader div{
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
-  left: 300px;
   gap: 1em;
 }

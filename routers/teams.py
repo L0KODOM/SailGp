@@ -25,6 +25,23 @@ def convert_to_dict(obj):
     else:
         return obj
 
+
+
+@router.get("/probs", response_model=dict)
+async def get_probs():
+  
+  result = {
+    'Spain': {1: 0.0619, 2: 0.1025, 3: 0.1313, 4: 0.1559, 5: 0.1513, 6: 0.1239, 7: 0.0932, 8: 0.0587, 9: 0.0321, 10: 0.015}, 
+    'Australia': {1: 0.117, 2: 0.143, 3: 0.1595, 4: 0.1464, 5: 0.114, 6: 0.0801, 7: 0.0484, 8: 0.0225, 9: 0.0079, 10: 0.0033}, 
+    'Canada': {1: 0.0527, 2: 0.0845, 3: 0.1122, 4: 0.132, 5: 0.1387, 6: 0.131, 7: 0.1178, 8: 0.0813, 9: 0.049, 10: 0.0288}, 
+    'Emirates GBR': {1: 0.0362, 2: 0.0616, 3: 0.095, 4: 0.1293, 5: 0.1513, 6: 0.149, 7: 0.127, 8: 0.103, 9: 0.0581, 10: 0.037}, 
+    'Francia': {1: 0.0282, 2: 0.0628, 3: 0.115, 4: 0.1594, 5: 0.1822, 6: 0.1723, 7: 0.1287, 8: 0.0767, 9: 0.0373, 10: 0.016}, 
+    'New Zealand': {1: 0.0998, 2: 0.1392, 3: 0.1723, 4: 0.1703, 5: 0.146, 6: 0.0965, 7: 0.0502, 8: 0.0205, 9: 0.0094, 10: 0.0025}, 
+    'Rockwool Denmark': {1: 0.0601, 2: 0.0883, 3: 0.1181, 4: 0.1363, 5: 0.1324, 6: 0.1266, 7: 0.1035, 8: 0.0692, 9: 0.0468, 10: 0.026}}
+  
+  return result
+  
+
 @router.get("/api_key={key}", response_model=list[Team])
 async def get_teams(key: str):
   validation = validate_key(key)
@@ -39,7 +56,6 @@ async def get_by_country(country: str):
 
 @router.post("/", response_model=Team, status_code=status.HTTP_201_CREATED)
 async def create_team(team: Team):
-    # Convertir todas las instancias de clases Pydantic a diccionarios
     team_dict = dict(team)
     team_dict['seasons_results'] = [dict(season) for season in team.seasons_results]
     team_dict['last_results'] = [dict(race) for race in team.last_results]
@@ -48,10 +64,8 @@ async def create_team(team: Team):
     if "id" in team_dict:
         del team_dict["id"]
 
-    # Insertar en MongoDB
     inserted_id = db_client.teams.insert_one(team_dict).inserted_id
 
-    # Recuperar el nuevo equipo para devolverlo en la respuesta
     new_team = db_client.teams.find_one({"_id": ObjectId(inserted_id)})
     if new_team is None:
         raise HTTPException(status_code=404, detail="Team not found")

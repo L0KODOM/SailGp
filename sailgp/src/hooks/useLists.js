@@ -27,7 +27,8 @@ export const useLists = (sortedTeams, teams) => {
           newRacesResults[race.race].push(race.position);
         });
         newRankedTeams.push(team.country);
-        newExpectedPos.push(team.stats_pos);
+        const teamProbs = Object.entries(team.stats_pos)
+        newExpectedPos.push(teamProbs);
         newProbs.push(team.probabilities);
         flags.push(team.flag)
         totalProb += team.probabilities;
@@ -52,7 +53,8 @@ export const useLists = (sortedTeams, teams) => {
         })
       }
       newColumns.push(regattas);
-      newColumns.push(newExpectedPos);
+      const probEntries = Object.entries(newExpectedPos)
+      newColumns.push(probEntries);
       newColumns.push(newPercent);
       setColumns(newColumns)
     };

@@ -20,7 +20,7 @@ def team_schema(team) -> dict:
         "crew": [
             {
                 "name": sailor["name"],
-                "age": sailor["age"]
+                "age": sailor["age"], 
             } for sailor in team["crew"]
         ],
         "probabilities": team["probabilities"],

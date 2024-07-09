@@ -9,9 +9,39 @@ import { getHeaders } from "../hooks/getHeaders"
 
 export const Ranking = () => {
   
-  const teams = useContext(TeamsContext)
+  const {teams, probs} = useContext(TeamsContext)
 
-  const columns = useRankColumns(teams)
+  const columns = useRankColumns(teams, probs)
+
+  const handleProbs = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+    7: false,
+    
+  }
+
+  const [showProbs, setShowProbs] = useState(handleProbs)
+
+  
+  const handleShowProbs = (number) => {
+    
+      const newState = {...showProbs}
+
+      for (let i = 1; i<=7; i++){
+        if (i !== number){
+          newState[i] = false
+        }
+        else{
+          newState[number] = !showProbs[number]
+        }
+      }
+
+      setShowProbs(newState)
+  };
 
   const {headers, regattas} = getHeaders(columns)
  
@@ -25,6 +55,7 @@ export const Ranking = () => {
       }
     })
   }
+
 
 
   if (!teams ){
@@ -50,6 +81,19 @@ export const Ranking = () => {
           .regatas::-webkit-scrollbar-thumb:hover {
             background: #555; 
           }
+          .prob-column ul::-webkit-scrollbar-track {
+            background: ${styles[pageStyle].bg};
+          }
+          .prob-column ul::-webkit-scrollbar {
+            width: 2px
+          }
+          .prob-column ul::-webkit-scrollbar-thumb {
+            background: ${styles[pageStyle].thumb}; 
+            border-radius: 6px; 
+          }
+          .prob-column ul::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+          }
           .ranking-section h1{
             text-shadow: ${styles[pageStyle].textShadow}
           }
@@ -58,12 +102,18 @@ export const Ranking = () => {
               linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
               url(${pageStyle? styles[pageStyle].picture : "https://www.livingpuramadera.com/wp-content/uploads/2021/10/sailgp2.jpg"});
           }
+
+          .prob-column *{
+            background-color: ${styles[pageStyle].bg};
+            border-radius: 10px;
+          }
         `}
       </style>
       <h1>Season 4</h1>
       <div className="ranking" style={{backgroundColor: styles[pageStyle].bg, boxShadow: styles[pageStyle].shadow}}>
         <ol style={{backgroundColor: styles[pageStyle].bg}}>
           {columns.map((column, index) => (
+            index !== 4?
             <li key={index} style={{backgroundColor: styles[pageStyle].li}}>
               <ul className={column !== regattas? "columnas" : "regatas"}>
                 {column.map((value, index)=>(
@@ -93,6 +143,33 @@ export const Ranking = () => {
                 ))}
               </ul>
             </li>
+            : <li key={index} style={{backgroundColor: styles[pageStyle].li}}>
+                <ul className="columnas" >
+                  {column.map((value, index)=>(
+                    index===0?
+                    <li key={index} className="inside" style={{backgroundColor: styles[pageStyle].li}}>
+                      <p className="value" style={{color:"yellow", position: "relative", bottom: "10px",borderBottom: `6px solid ${styles[pageStyle].bg}`, paddingBottom: "15px"}}>{value[1]}</p>
+                    </li>
+                    : <li key={index} className="inside" onClick={()=>{handleShowProbs(index)}} style={{cursor:"pointer", backgroundColor: styles[pageStyle].li}}>
+                        {showProbs[index]?
+                        <div>
+                          <p className="value" id="cuotas">X</p>
+                          <div  className="prob-column">
+                            <ul>
+                              <i className="material-icons" style={{position: "absolute", top:"170px", right: "78px", color: "yellow"}}>arrow_drop_down</i>
+                              {value[1].map((prob,index)=>(
+                                <li key={index} style={{backgroundColor: styles[pageStyle].bg}}>
+                                  <p>{prob[0]}º  {(prob[1]*100).toFixed(2)}%</p>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                        : <p className="value" id="cuotas">Cuotas</p>} 
+                      </li>
+                  ))}
+                </ul>
+              </li>
           ))}
         </ol>
       </div>

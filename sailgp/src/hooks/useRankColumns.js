@@ -1,7 +1,8 @@
+import { useEffect } from "react"
 import { useLists } from "./useLists"
 
 
-export const useRankColumns = (teams) => {
+export const useRankColumns = (teams, probs) => {
 
   const calculatePoints = (lastResults) => {
     const total = lastResults.reduce((acc, race) => acc + race.position, 0)
@@ -17,6 +18,15 @@ export const useRankColumns = (teams) => {
       total_points: total
     }
   })
+
+  useEffect(()=>{
+    const addProbs = () => {
+      teamsWithPoints.map((team) => {
+        team["stats_pos"] = probs[team.country]
+      })
+    }
+    addProbs()
+  },[probs, teamsWithPoints])
 
   const sortedTeams = teamsWithPoints.sort((a,b)=>a.total_points -b.total_points)
 

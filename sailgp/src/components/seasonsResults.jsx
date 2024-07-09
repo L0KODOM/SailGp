@@ -9,7 +9,7 @@ export const SeasonsResults = ( {results} ) => {
 
 
   return(
-    <div className="team-div">
+    <div className="results-div">
       {columns.map((value, index)=>(
         <ul key={`value ${index}`}>
           {value.map((data, index)=>(

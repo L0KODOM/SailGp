@@ -7,7 +7,7 @@ export const LastResults = ( {results} ) => {
   const columns = useRaceResultsLists(results, 'race')
 
   return(
-    <div className="team-div">
+    <div className="results-div">
       {columns.map((value, index)=>(
         <ul key={`value ${index}`}>
           {value.map((data, index)=>(

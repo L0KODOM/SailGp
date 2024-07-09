@@ -3,10 +3,13 @@ import random
 import threading
 import json
 from validations import get_valid_input, get_valid_name
-from main_requests import get_data
+from main_requests import get_data, get_circuit_results
 
 
 RACES = ["CHICAGO", "LOS ANGELES", "SAINT-TROPEZ", "CADIZ", "DUBAI", "ABU DHABI", "SIDNEY", "CHRISTCHURCH", "BERMUDA", "HALIFAX", "NEW YORK"]
+
+
+#RACES = ["CHICAGO", "LOS ANGELES", "SAINT-TROPEZ", "CADIZ", "DUBAI", "ABU DHABI", "SIDNEY", "CHRISTCHURCH", "BERMUDA", "HALIFAX", "NEW YORK"]
 
 team_last_positions = []
 
@@ -119,13 +122,14 @@ def get_crew_data():
     f"Edad de {name}: ",
     'age'
   )
-  position = input("Posición del tripulante: ")
+  picture = input("Foto del tripulante: ")
       
   return {
     "name" : name,
     "age" : age,
-    "position" : position
+    "picture" : picture
   }
+  
     
 def define_team(type):
   
@@ -159,6 +163,24 @@ def define_team(type):
   
   if type != 'post':
     data["id"] = data_id
+  
+  return data
+
+def define_circuit():
+  
+  name = input("Circuito: ")
+  picture = input("Imagen: ")
+  conditions = input("Condiciones: ")
+  date = input("Fecha: ")
+  results = get_circuit_results(name)
+  
+  data = {
+    "name": name,
+    "picture": picture,
+    "date": date,
+    "conditions": conditions,
+    "results": results
+  }
   
   return data
     

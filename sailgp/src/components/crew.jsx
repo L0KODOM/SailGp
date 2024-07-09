@@ -1,25 +1,24 @@
 /* eslint-disable react/prop-types */
 
-import { useCrewList } from "../hooks/useCrewList"
+import { useBuildCrew } from "../hooks/buildCrew"
+
 
 
 export const Crew = ( {crew} ) => {
 
-  const crewColumns = useCrewList(crew)
+  const builtCrew = useBuildCrew(crew)
 
   return(
     <div className="team-div">
-      <div className="row">
-        {crewColumns.map((value, index)=>(
-          <ul key={index} >
-            {value.map((data, index)=>(
-              <li key={index}>
-                <p>{data}</p>
-              </li>
-            ))}
-          </ul>
+      <ul>
+        {builtCrew.map((sailor, index)=>(
+          <li key={index} className="card">
+            <p>{sailor[1].name}</p>
+            <p>{sailor[1].age} años</p>
+            <p>{sailor[1].position}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   )
 }

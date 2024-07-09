@@ -78,3 +78,28 @@
   position: relative;
   right: 20px;
 }
+
+.prob-column{
+  display: flex;
+  position: absolute;
+  left: 1px;
+  z-index: 100;
+}
+
+.prob-column ul{
+  height: 200px;
+  overflow-y: scroll;
+}
+
+
+.prob-column li{
+  position: relative;
+  right: 25px;
+}
+
+#cuotas{
+  background-color: black;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 1px #15ff0094;
+}

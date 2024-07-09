@@ -7,7 +7,7 @@ export const useRaceResultsLists = (results, type) => {
   const [columns, setColumns] = useState([])
 
   useEffect(()=>{
-    const titles = [' .', 'Posición', 'Puntos']
+    const titles = ['Season', 'Posición', 'Puntos']
     const races = {}
     const newColumns = [titles]
 

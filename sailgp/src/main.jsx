@@ -8,8 +8,8 @@ import { NavHeader } from './components/NavHeader.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <NavHeader/>
     <TeamsProvider>
+      <NavHeader/>
       <App />
     </TeamsProvider>
   </BrowserRouter>

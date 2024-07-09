@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import teams, auth
+from routers import teams, auth, circuits
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -20,6 +20,7 @@ app.add_middleware(
 
 app.include_router(teams.router)
 app.include_router(auth.router)
+app.include_router(circuits.router)
 
 @app.get("/")
 async def hola():

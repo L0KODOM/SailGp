@@ -1,37 +1,49 @@
-
+import { useState } from 'react'
 import '../styles/landing.css'
+import { Calendar } from './calendar'
+import { WatchList } from './watchList'
 
 
 
 export const Landing = () => {
-  
-  const circuits = ['CHICAGO', 'LOS ANGELES', 'SAINT-TROPEZ', 'CADIZ', 'DUBAI', 'ABU DHABI', 'SIDNEY', 'CHIRSTCHURCH', 'BERMUDA', 'HALIFAX', 'NEW YORK']
+  const [showCalendar, setShowCalendar] = useState(false)
 
-  return (
+
+  const handleClickCalendar = () => {
+    setShowCalendar(!showCalendar)
+  }
+
+
+  return(
     <section className="landing">
-      <ul>
-        {circuits.map((circuit, index)=>(
-          <li key={index}>
-            <div className='circuit-card'>
-              <h2 >{circuit}</h2>
-              <img src= "https://images.ctfassets.net/2lppn7hwgzta/5Z65NcMowz20AvRhellMVV/69dacd23175f9a2c0ff6d01df559b7f0/JB2_2070.jpg"alt={circuit}/>
-              <div>
-                <div>
-                  <p className='date-numbers'>24      05      2024</p>
-                  <div className='circuit-date'>
-                    <div>
-                      <div></div>
-                    </div>
-                  </div>
-                </div>
-                <p style={{color:"black"}}>Conditions: Extreme 
-                </p>
-              </div>
-            </div>
-          </li>
-        ))}
-      </ul>
-      
+      <div>
+        <iframe
+          width="460"
+          height="415"
+          src={`https://www.youtube.com/embed/Q_pOQj6WSbk`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="YouTube video"
+        ></iframe>
+      </div>
+      <div>
+        <button onClick={handleClickCalendar}>SEASON 5 CALENDAR</button>
+        {showCalendar ?
+        <Calendar />
+        : 
+        <WatchList/>
+        }
+      </div>
+      <div>
+        <iframe
+          width="460"
+          height="415"
+          src={`https://www.youtube.com/embed/Rg3lTCaI-lo`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="YouTube video"
+        ></iframe>
+      </div>
     </section>
-  );
-};
+  )
+}

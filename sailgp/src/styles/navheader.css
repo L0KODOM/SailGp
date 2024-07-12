@@ -9,11 +9,21 @@
   padding-left: 50px;
   height: 80px;
   border-bottom: 4px solid aquamarine;
+  position: fixed;
+  background-color: rgb(17, 17, 17);
+  width: 100vw;
+  max-width: 1815px;
+  height: 125px;
+  z-index: 3000 ;
+  margin-top: -33px;
 }
 
 .navheader img{
   width: 350px;
   height: auto;
+  position: relative;
+  right: 50px;
+  z-index: 2050;
 }
 
 .navheader div{
@@ -21,9 +31,40 @@
   flex-direction: row;
   align-items: center;
   gap: 1em;
+  margin-right: 40px;
+}
+
+.teams-list{
+  z-index: 2000;
 }
 
 .teams-list h2:hover{
   cursor: pointer;
   color: aquamarine;
+}
+
+@media(max-width:800px){
+  .navheader div{
+    flex-direction: column;
+    height: 30px;
+    position: relative;
+    right: 11.5%;
+    bottom: 15px;
+    margin-right: 0px;
+    gap: 0;
+    margin-top: -5px;
+  }
+.teams-list *{
+  background-color: rgb(17, 17, 17);
+  width: 100px;
+  padding: 10px;
+  margin-top: -8.5px;
+  gap: 5em;
+}
+
+.teams-list{
+  background-color: rgb(17, 17, 17);
+}
+
+  
 }

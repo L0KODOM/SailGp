@@ -6,6 +6,7 @@ class TeamResult(Result):
   team: str
 
 class Circuit(BaseModel):
+  id: Optional[str] = None
   name: str
   picture: str
   date: str

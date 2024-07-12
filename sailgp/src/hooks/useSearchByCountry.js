@@ -5,14 +5,22 @@ import { useEffect, useState } from "react"
 export const useSearchByCountry = (country) => {
   const [selectedTeam, setSelectedTeam] = useState(null)
   useEffect(()=>{
+    let isMounted = true;
+
     const search = async() => {
       const team =  await searchTeamsByCountry(country)
-      setSelectedTeam(team)
+      if (isMounted) {
+        setSelectedTeam(team);
+      }
     }
 
-    search()
+    search();
+
+    return () => {
+      isMounted = false
+    };
     
-  },[country, setSelectedTeam])
+  },[country])
 
   return selectedTeam
 }

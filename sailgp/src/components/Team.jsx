@@ -26,14 +26,16 @@ export const Team = (  ) => {
 
   return (
     <section className='team-section'>
-      <h1>{country}</h1>
-      <div className='nickname'>
-        <img alt='logo' src= {styles[verificatedCountry].logo}/>
-      </div>
-      <div className='display-options'>
-        <button onClick={()=>{activateSection('crew')}}>Crew</button>
-        <button onClick={()=>{activateSection('last_results')}}>Last Results</button>
-        <button onClick={()=>{activateSection('season_results')}}>Season Results</button>
+      <div className='section-block'>
+        <h1>{country}</h1>
+        <div className='nickname'>
+          <img alt='logo' src= {styles[verificatedCountry].logo}/>
+        </div>
+        <div className='display-options'>
+          <button onClick={()=>{activateSection('crew')}}>Crew</button>
+          <button onClick={()=>{activateSection('last_results')}}>Last Results</button>
+          <button onClick={()=>{activateSection('season_results')}}>Season Results</button>
+        </div>
       </div>
       {activeSection === 'crew' ?
         <Crew crew={selectedTeam.crew}/>

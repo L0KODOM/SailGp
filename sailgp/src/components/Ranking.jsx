@@ -26,7 +26,6 @@ export const Ranking = () => {
 
   const [showProbs, setShowProbs] = useState(handleProbs)
 
-  
   const handleShowProbs = (number) => {
     
       const newState = {...showProbs}
@@ -101,6 +100,7 @@ export const Ranking = () => {
             background: 
               linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
               url(${pageStyle? styles[pageStyle].picture : "https://www.livingpuramadera.com/wp-content/uploads/2021/10/sailgp2.jpg"});
+            min-width: 1100px
           }
 
           .prob-column *{

@@ -1,98 +1,35 @@
-.landing {
+.landing{
   display: flex;
-  flex-direction: row;
-  width: 100vw;
-  height: 39vw;
-  background: 
-    linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
-    url("https://www.livingpuramadera.com/wp-content/uploads/2021/10/sailgp2.jpg");
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-position: center; 
-  justify-content: center;
-}
-
-.landing ul{
-  display: flex;
-  padding: 50px;;
-  height: 1400px;
-  margin-bottom: 100px;
-  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  list-style-type: none;
+  padding-top: 150px;
   gap: 5em;
+  background: 
+    linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
+    url("https://images.ctfassets.net/2lppn7hwgzta/2ncuNVJpALNStOsjUZS1pC/f120ae60482fe76a240f3293ae558939/S5_Launch_4x5_1x1.webp");
 }
 
-.teams-list{
+.watchList img{
+  max-width: 100px;
+  height: auto;
+}
+
+.watchList ul{
   display: flex;
   flex-direction: column;
+  backdrop-filter: blur(20px);
+  margin-top: 10px;
+  padding-top: 0;
+  gap: 2.5em;
+  padding-top: 50px;
+  border-radius: 20px;
+  height: 600px;
 }
 
-.circuit-card{
+.watch-element{
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
-  width: 400px;
-  height: 400px;
-  background-color: aqua;
-  border-radius: 15px;
-  box-shadow: 5px 5px 5px aquamarine;
-}
-
-.circuit-card img{
-  position: relative;
-  width: 400px;
-  height: 350px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-
-.circuit-card h2{
-  position: absolute;
-  color: rgb(0, 0, 0);
-  text-shadow: 0.5px 0.5px 0.5px yellow;
-  z-index: 100;
-}
-
-.circuit-card div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2em;
-  max-height: 50px;
-}
-
-.circuit-date{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  width: 150px;
-  padding: 2px;
-  background-color: rgb(177, 177, 177);
-  box-shadow: 1px 1px 1px rgb(0, 0, 0);
-}
-
-.circuit-date div{
-  background-color: white;
-  width: 50px;
-  height: 25px;
-  transform: skew(-20deg);
-  transform-origin: top left;
-}
-
-.circuit-date div div{
-  background-color: rgb(177, 177, 177);
-  width: 40px;
-  height: 28px;
-  transform: skew(-0deg);
-  transform-origin: top left;
-}
-
-.date-numbers{
-  position: absolute;
-  z-index: 1000;
-  margin-left: 10px;
-  white-space: pre; 
+  gap: 3em;
+  width: 200px;
 }

@@ -20,7 +20,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: aquamarine;
+  color: yellow;
 }
 
 body {
@@ -68,3 +68,18 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (max-width:1200px){
+  :root{
+    overflow-x:initial;
+  }
+
+  .main{
+    background: 
+    linear-gradient(rgba(1, 26, 2, 0.5), rgba(13, 34, 16, 0.5)),
+      url("https://www.livingpuramadera.com/wp-content/uploads/2021/10/sailgp2.jpg");
+    background-size: cover; 
+    background-position: center; 
+  }
+}
+

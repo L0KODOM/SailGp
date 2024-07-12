@@ -1,6 +1,8 @@
+import { API_KEY } from "../util/constants"
 
 
-const API_KEY = '5ecdf18e-c543-4fa3-aff7-dbade6f04407'
+
+const URL = 'http://127.0.0.1:8000/teams/'
 
 export const searchTeams = async () => {
   
@@ -26,7 +28,7 @@ export const searchTeams = async () => {
 export const searchTeamsByCountry = async ( search ) => {
   
   try {
-    const response = await fetch(`http://127.0.0.1:8000/teams/${search}`)
+    const response = await fetch(`${URL}${search}`)
     const json = await response.json()
 
     return json
@@ -40,7 +42,7 @@ export const searchTeamsByCountry = async ( search ) => {
 export const searchProbs = async () => {
 
   try {
-    const response = await fetch(`http://127.0.0.1:8000/teams/probs`)
+    const response = await fetch(`${URL}probs`)
     const json = await response.json()
 
     return json

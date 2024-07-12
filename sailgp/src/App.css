@@ -1,5 +1,6 @@
 #root {
   width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -13,7 +14,6 @@
   justify-content: center;
   place-items: center;
   background-size: cover; 
-  background-repeat: no-repeat; 
   background-position: center; 
 
 }

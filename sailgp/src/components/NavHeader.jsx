@@ -47,6 +47,11 @@ export const NavHeader = () => {
             <h2 style={{color: "rgb(255, 255, 255)"}}>RANKING</h2>
           </NavLink>
         </div>
+        <div>
+          <NavLink to={"/circuits"}>
+            <h2 style={{color: "rgb(255, 255, 255)"}}>CIRCUITOS</h2>
+          </NavLink>
+        </div>
       </div>
     </div>
   )

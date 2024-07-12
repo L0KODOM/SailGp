@@ -1,0 +1,67 @@
+.circuit-section{
+  margin-top: 100px;
+}
+
+.circuit-section ul{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  background-color: rgb(10, 10, 10);
+  border-radius: 10px;
+  gap: 0.05em;
+  box-shadow: 1px 1px 1px rgb(255, 140, 0);
+}
+
+.circuit-section div{
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  right: 20px;
+  color: black;
+}
+
+.circuit-section li{
+  display: flex;
+  border-bottom: 1px solid salmon;
+  background-color: rgb(0, 0, 0);
+}
+
+.keys{
+  width: 200px;
+  color: white;
+}
+
+.values{
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: white;
+}
+
+.teams-values{
+  background-color: rgb(255, 140, 0);
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-right-radius: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-family: edosz;
+  color: black;
+}
+
+.teams-values:hover{
+  color: rgb(251, 255, 0);
+}
+
+@media(max-width:600px){
+  .circuit-section{
+    position: relative;
+    margin-left: 200px;
+  }
+}
